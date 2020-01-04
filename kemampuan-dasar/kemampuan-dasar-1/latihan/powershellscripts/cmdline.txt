@@ -1,0 +1,83 @@
+JOHANES INDRAKUSUMA - 089651335976
+-----------------------------------------------------------
+C:\Users\jindr>cd\
+Untuk ke root drive C:\
+
+C:\Users\jindr>d:
+Pindah dari drive C:\> ke drive D:\>
+
+C:\>dir
+Melihat is drive C:
+
+C:\>mkdir tes-1
+Membuat folder "tes-1" di drive C:
+
+C:\>ren tes-1 tes-1-new
+Me-rename folder tes-1 menjadi tes-1-new
+
+C:\>clear
+Membersihkan layar cmd
+
+C:\>del file-name.txt
+Menghapus file
+
+C:\>RD tes-1-new
+Menghapus directori
+
+C:\Program Files\Sublime Text 3>sublime_text.exe
+Buka sublime lewat cmd
+
+C:\>ipconfig
+Melihat Windows IP Configuration
+
+C:\>ping yahoo.com
+Mengecek apakah komputer dapat mengakses website yahoo atau komputer lain/server.
+
+C:\>systeminfo
+Melihat informasi tentang komputer
+
+C:\>date /t
+Tanggal hari ini
+
+C:\>time /t
+Jam/waktu saat ini
+
+ctrl+C 
+Cancel command in cmd
+
+C:\>ver
+Melihat versi OS
+
+C:\>whoami
+Cek user saat ini
+
+C:\>hostname
+Melihat nama komputer
+
+C:\>commandname /?
+Untuk menampilkan daftar command
+
+C:\>exit /B
+untuk keluar dari cmd
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
