@@ -1,0 +1,1 @@
+Get-ChildItem -Path D:\!belajar-2019\praxis\github\praxis-academy\kemampuan-dasar\kemampuan-dasar-1\latihan\shellscripts
