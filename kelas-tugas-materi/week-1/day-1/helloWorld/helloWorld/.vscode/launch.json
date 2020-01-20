@@ -1,0 +1,70 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Debug (Launch) - Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Branch<helloWorld>",
+            "request": "launch",
+            "mainClass": "Branch",
+            "projectName": "helloWorld"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-ForLoop<helloWorld>",
+            "request": "launch",
+            "mainClass": "ForLoop",
+            "projectName": "helloWorld"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Test<helloWorld>",
+            "request": "launch",
+            "mainClass": "Test",
+            "projectName": "helloWorld"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-App<helloWorld>",
+            "request": "launch",
+            "mainClass": "app.App",
+            "projectName": "helloWorld"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-array<helloWorld>",
+            "request": "launch",
+            "mainClass": "array",
+            "projectName": "helloWorld"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-arraysort<helloWorld>",
+            "request": "launch",
+            "mainClass": "arraysort",
+            "projectName": "helloWorld"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-hello<helloWorld>",
+            "request": "launch",
+            "mainClass": "hello",
+            "projectName": "helloWorld"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-hitung<helloWorld>",
+            "request": "launch",
+            "mainClass": "hitung",
+            "projectName": "helloWorld"
+        }
+    ]
+}

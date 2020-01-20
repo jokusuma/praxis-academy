@@ -1,0 +1,50 @@
+DAY 1
+----------------
+1.Ikuti langkah2 di sini :
+https://code.visualstudio.com/docs/java/java-tutorial
+
+2.Setting java bin di "environment variable" (logo windows -> envi -> tab advance -> environment variable) :
+C:\Program Files\Java\jdk-13.0.2\bin
+lihat screenshot ini : D:\!belajar-2019\praxis\kelas\week-1\day-1\2020-01-20_10-45-51.png
+
+lihat apakah java sudah jalan :
+javac -version
+
+3.Java: Create Java Project command
+lalu pilih folder.
+
+4.Buat file hello.java di folder no 3.
+public class hello {
+    public static void main(String[] args) {
+        System.out.println("Hello World");
+    }
+}
+
+5.void = keyword java yang berarti tidak mengembalikan nilai untuk diproses di tempat(class) lain.
+
+6.Looping di java :
+public class ForLoop {
+    public static void main(String args[]) { 
+        System.out.println("Looping dengan FOR");
+        for (int i=0; i<3; i++) {
+            System.out.println("knock" + i);
+        }
+    }
+}
+
+Keterangan :
+public static void main(String args[]) { } = line dgn keyword main ini u/ running program nya
+System.out.println = ini seperti echo di php
+
+
+7.Buat file jar
+https://stackoverflow.com/questions/1238145/how-to-run-a-jar-file
+Create new project di vscode
+Lalu buat file .java nya
+di terminal arahkah directori ke file App.java
+Ketik : 
+javac App.java
+$ jar cvfe App.jar App App.class
+	atau : jar cvfe App.jar App *.class
+java -jar App.jar
+
