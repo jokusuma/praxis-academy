@@ -48,3 +48,76 @@ $ jar cvfe App.jar App App.class
 	atau : jar cvfe App.jar App *.class
 java -jar App.jar
 
+8.input dari user :
+Untuk membuat file *java, harus langsung di dalam folder /src/
+Jika di sub-folder nya (src/app), harus pakai package.
+
+https://stackoverflow.com/questions/5287538/how-to-get-the-user-input-in-java
+
+
+============================================================================================================
+DAY 2 - 21 JAN 2020
+============================================================================================================
+
+1.Bikin package :
+https://www.w3schools.com/java/java_packages.asp
+
+package mypack;
+class pack1 {
+  public static void main(String[] args) {
+    System.out.println("This is my package!");
+  }
+}
+
+note: 
+mypack = nama folder
+pack1 = nama file pack1.java
+
+Di terminal di compile =
+javac pack1.java
+
+Di terminal di compile untuk bikin folder mypack yg di isi file pack1.class
+javac -d . MyPackageClass.java
+
+Setelah di compile, file *java simpan di folder yg sama dengan file *class
+
+2. Gradle
+https://docs.gradle.org/5.4.1/userguide/installation.html#installing_manually
+
+Setting gradle nya harus diarahkan ke directori bin :
+C:\Gradle\gradle-6.1\bin
+lihat ini : https://www.screencast.com/t/uBsSrCOC6XD6
+
+Di environment setting, buat :
+variable name : GRADLE_HOME
+variable value : C:\Gradle\gradle-6.1\bin
+
+di path, tambahkan : C:\Gradle\gradle-6.1\bin
+
+3. Exception/ERROR handling :
+Caranya adalah tambahkan "e" untuk menampilkan error nya.
+Contoh nya :
+public class excep1 {
+    public static void main(String[] args) {
+        try {
+            String[] students = {"andy", "budi", "chandra"};
+            System.out.println(students[3]);
+        } catch (Exception e) {
+            //TODO: handle exception
+            System.out.println("OK" + e);
+        } finally {
+            System.out.println("Done");
+        }       
+    }
+}
+
+4.Untuk mengeluarkan info error nya apa di terminal, pakai command :
+javac namafile.java 
+
+
+
+
+
+
+
+
