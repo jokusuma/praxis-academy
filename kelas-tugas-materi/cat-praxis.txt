@@ -1,5 +1,6 @@
-DAY 1
-----------------
+========================================================================================================
+DAY 1 - 20 JAN 2020
+========================================================================================================
 1.Ikuti langkah2 di sini :
 https://code.visualstudio.com/docs/java/java-tutorial
 
@@ -55,9 +56,9 @@ Jika di sub-folder nya (src/app), harus pakai package.
 https://stackoverflow.com/questions/5287538/how-to-get-the-user-input-in-java
 
 
-============================================================================================================
+========================================================================================================
 DAY 2 - 21 JAN 2020
-============================================================================================================
+========================================================================================================
 
 1.Bikin package :
 https://www.w3schools.com/java/java_packages.asp
@@ -114,8 +115,80 @@ public class excep1 {
 4.Untuk mengeluarkan info error nya apa di terminal, pakai command :
 javac namafile.java 
 
+5.Compile beberapa file menjadi 1 jar
+Kasus 2B : Bicycle.java dan BicycleDemo.java
 
+    STEP 1 : Buat file "Bicycle.java" yang berisi class Bicycle yaitu object, tanpa main()
+    class Bicycle {
 
+        int cadence = 0;
+        int speed = 0;
+        int gear = 1;
+
+        void changeCadence(int newValue) {
+             cadence = newValue;
+        }
+
+        void changeGear(int newValue) {
+             gear = newValue;
+        }
+
+        void speedUp(int increment) {
+             speed = speed + increment;   
+        }
+
+        void applyBrakes(int decrement) {
+             speed = speed - decrement;
+        }
+
+        void printStates() {
+             System.out.println("cadence:" +
+                 cadence + " speed:" + 
+                 speed + " gear:" + gear);
+        }
+    }
+
+    Step 2: buat file BicycleDemo.java yang berisi class BicycleDemo
+    class BicycleDemo {
+        public static void main(String[] args) {
+
+            // Create two different 
+            // Bicycle objects
+            Bicycle bike1 = new Bicycle();
+            Bicycle bike2 = new Bicycle();
+
+            // Invoke methods on 
+            // those objects
+            bike1.changeCadence(50);
+            bike1.speedUp(10);
+            bike1.changeGear(2);
+            bike1.printStates();
+
+            bike2.changeCadence(50);
+            bike2.speedUp(10);
+            bike2.changeGear(2);
+            bike2.changeCadence(40);
+            bike2.speedUp(10);
+            bike2.changeGear(3);
+            bike2.printStates();
+        }
+    }
+
+    Step 3: Buat file .class untuk semua file *java (Bicycle.java dan BicycleDemo.java)
+    Di terminal tuliskan = javac *.java
+
+    Step 4: Compile semua file *class ke dlm 1 file jar
+    Di terminal tuliskan = jar cvfe Bicycle.jar BicycleDemo *.class
+    keterangan =
+        Bicycle.jar -> ini nama output file jar nya
+        BicycleDemo -> main class nya
+        *.class = semua file dengan extension class
+
+    Step 5: Coba jalankan file jar nya 
+    Di terminal tuliskan = java -jar Bicycle.jar
+
+    Screenshot nya =
+    https://www.screencast.com/t/BVejeqZX
 
 
 
