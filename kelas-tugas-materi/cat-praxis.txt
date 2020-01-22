@@ -190,7 +190,171 @@ Kasus 2B : Bicycle.java dan BicycleDemo.java
     Screenshot nya =
     https://www.screencast.com/t/BVejeqZX
 
+================================================================================================
+DAY 3 - 23 JAN 2020
+================================================================================================
+Annotation : https://beginnersbook.com/2014/09/java-annotations/
+1.Anotation bisa seperti @author, namanya anotation with element
+2.Instead of using anotation, programmer usually use comment (seperti yg di bawah  line public class Materi1)
+3.Penulisan annotation yang lebih tepat adalah dengan menggunakan @interface ClassPreamble {} lalu di bawah nya di definisikan @classpreamble 
+4.Untuk mengimport dari@ClassPreamble ke java doc, gunakan @Document di atas line @interace
+5.Diatas anotation harus ada komen yang menjelaskan detaila anotation untuk apa
+
+Annotation yang penting adalah :
+1.Buat file SuperBase.java
+public class SuperBase {
+    @Deprecated
+    // @Override
+    public void Display(){
+        System.out.println("Display Superbase");
+    }
+}
+2.Buat file DeprecatedTest.java
+public class DeprecatedTest extends SuperBase
+{
+    //@Deprecated
+    @Override
+    public void Display()
+    {
+        System.out.println("Deprecatedtest display()");
+    }
+    
+    @SuppressWarnings("deprecation")
+    public static void main(String args[])
+    {
+        DeprecatedTest d1 = new DeprecatedTest();
+        d1.Display();
+        SuperBase d2= new SuperBase();
+        d2.Display();
+    }
+}
+Keterangan :
+Karena Display() di file SuperBase.java di deprecated, maka d2.Display() dicoret.
+Pada saat di beri @SuppressWarnings("deprecation"), maka coret akan hilang
+
+
+--------------------
+JAVADOC : The JDK tool that generates API documentation from documentation comments.
+https://www.oracle.com/technetwork/articles/javase/index-137868.html
+
+penjelasan singkat : https://www.baeldung.com/javadoc
+
+1.Javadoc comments structure look very similar to a regular multi-line comment, but the key difference is the extra asterisk at the beginning:
+
+// This is a single line comment
+ 
+/*
+ * This is a regular multi-line comment
+ */
+ 
+/**
+ * This is a Javadoc
+ */
+
+2.Javadoc at Class Level
+/**
+* Hero is the main entity we'll be using to . . .
+* 
+* Please see the {@link com.baeldung.javadoc.Person} class for true identity
+* @author Captain America
+* 
+*/
+public class SuperHero extends Person {
+    // fields and methods
+}
+
+3.Javadoc at Field Level
+/**
+ * The public name of a hero that is common knowledge
+ */
+private String heroName;
+
+4.Javadoc at Method Level
+/**
+ * <p>This is a simple description of the method. . .
+ * <a href="http://www.supermanisthegreatest.com">Superman!</a>
+ * </p>
+ * @param incomingDamage the amount of incoming damage
+ * @return the amount of health hero has after attack
+ * @see <a href="http://www.link_to_jira/HERO-402">HERO-402</a>
+ * @since 1.0
+ */
+public int successfullyAttacked(int incomingDamage) {
+    // do things
+    return 0;
+}
+
+5.Order of Tags
+Include tags in the following order:
+
+@author (classes and interfaces only, required)
+@version (classes and interfaces only, required. See footnote 1)
+@param (methods and constructors only)
+@return (methods only)
+@exception (@throws is a synonym added in Javadoc 1.2)
+@see
+@since
+@serial (or @serialField or @serialData)
+@deprecated (see How and When To Deprecate APIs)
+
+6. OOP
+BoundExmp<Y> bey = new BoundExmp<Y>(new Y()); // Buat object Bey dari class BoundExmp
+bey.doRunTest(); // memanggi method doRuntest (yg ada di class BoundExmp yg sdh di def sebagai "bey)
+
+
+======================================================================
+JAVA BASICS
+https://www.w3schools.com/java/java_getstarted.asp
+
+1.In Java, every application begins with a class name, and that class must match the filename.
+2.A class should always start with an uppercase first letter. 
+    (jadi, nama file nya jg diawali huruf besar)
+3.Every line of code that runs in Java must be inside a class
+    public class MyClass {
+      public static void main(String[] args) {
+        System.out.println("Hello World");
+      }
+    }
+4.file java harus di complile jadi *class dulu 
+    C:\Users\Your Name>javac MyClass.java
+    lalu di jalan kan class nya di CMD
+    C:\Users\Your Name>java MyClass
+5.Method yg sering digunakan :
+    main()
+    println()
+6.Komen di java = di php
+7.Variable di java :
+    String = text
+    int = angka (tanpa desimal)
+    float = angka desimal
+    char = single character / huruf tunggal
+    boolean = T/F
+    Kenapa kok ada tipe data seperti ini? karena masing2 tipe data punya batasan size byte nya.
+        https://www.w3schools.com/java/java_data_types.asp
+8.To create a variable, you must specify the type and assign it a value:
+    type variable = value;
+        String name = "John";
+        float myFloatNum = 5.99f;
+        char myLetter = 'D';
+        boolean myBool = true;
+        int myNum = 15;
+    You can add the final keyword if you don't want others (or yourself) to overwrite existing values
+        final int myNum = 15;
+9.Display variable
+    String name = "John";
+    System.out.println("Hello " + name);
+10.Declare Many Variables
+    int x = 5, y = 6, z = 50;
+    System.out.println(x + y + z);
 
 
 
 
+
+
+
+
+
+
+
+======================================================================
