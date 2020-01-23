@@ -42,11 +42,15 @@ System.out.println = ini seperti echo di php
 https://stackoverflow.com/questions/1238145/how-to-run-a-jar-file
 Create new project di vscode
 Lalu buat file .java nya
-di terminal arahkah directori ke file App.java
+Buat file manifest nya
+    Manifest-version: 1.0
+    Main-Class: BicycleRun (ini adalah class yg mengandung "public static void main(String[] args) {}")
+Di terminal arahkah directori ke file App.java
 Ketik : 
 javac App.java
 $ jar cvfe App.jar App App.class
 	atau : jar cvfe App.jar App *.class
+    App = class yg mengandung "public static void main(String[] args) {}"
 java -jar App.jar
 
 8.input dari user :
@@ -349,7 +353,454 @@ https://www.w3schools.com/java/java_getstarted.asp
 
 
 
+----------------------
+JAVA OOP
+----------------------
+1. Class & Object
+Class = Car --> tdk bisa dipegang fisik nya
+Object = Volvo, BMW, Toyota --> bisa
 
+2.Object punya : atribut & method
+    atribut = warna, berat, bentuk, model
+    method = di-setir, di-jalankan, di-cat, dll
+
+3.A Class is like an object constructor, or a "blueprint" for creating objects.
+
+4.Cara membuat class
+public class MyClass {
+    int x = 10;
+}
+
+5.Object harus di buat dari class, jd di tulis di dlm class.
+To create an object of MyClass, specify the class name, followed by the object name, and use the keyword new:
+
+public class MyClass {
+    int x = 10;
+
+    public static void main(String[] args) {
+        MyClass myObj = new MyClass();
+        System.out.println(myObj.x);
+    }
+}
+
+
+6.You can also create an object of a class and access it in another class. This is often used for better organization of classes (one class has all the attributes and methods, while the other class holds the main() method (code to be executed)).
+
+Remember that the name of the java file should match the class name. In this example, we have created two files in the same directory/folder:
+
+MyClass.java
+OtherClass.java
+
+jadi ga perlu "include" kalo msh dlm 1 dir.
+
+Untuk menjalankan di terminal :
+* javac *.java //untuk compile semua file java jadi *class
+* java OtherClass //menjalankan class OtherClass yg memiliki main
+
+
+7.CLASS ATRIBUT
+class atribut / atribut = variable (yg ada di dlm class)
+    contoh : int x = 10 
+    x adalah atribut (letak nya harus di dlm class)
+
+Cara mengakses atribut : 
+by creating an object of the class, and by using the dot syntax (.):
+    myObj.x
+    lihat no 5 di atas
+
+Cara memodifikasi atribut : dgn mengassign nilai baru
+public class MyClass{
+    int x = 10;
+
+    public static void main(String[] args) {
+        MyClass myObj = new MyClass;
+        myObj.x =40;
+        System.out.println(myObj.x);
+    }
+}
+
+Praktek nya seperti ini :
+D:\!belajar-2019\praxis\github\praxis-academy\kelas-tugas-materi\week-1\day-4\oopbasic\src
+
+public class Human2 {
+    String maleName = "Andy";
+    String femaleName = "Desy";
+    int age = 10;
+
+    public static void main(String[] args) {
+        //create new male & female human object (tdk perlu 2 kali bikin object)
+        Human2 gender = new Human2();
+        //printing
+        System.out.println("Nama : " + gender.maleName + ". Umur : " + gender.age);
+        System.out.println("Nama : " + gender.femaleName + ". Umur : " + gender.age);
+    }
+}
+    
+
+8.CLASS METHOD
+methods are declared within a class, and that they are used to perform certain actions
+
+public class Method1 {
+    // create print method yang menampilkan "Hello World"
+    static void print(){
+        System.out.println("Hello World");
+    }
+    public static void main(String[] args) {
+        // calling the method
+        print();
+    }
+}
+
+Static vs. Non-Static Method
+Java programs that have either static or public attributes and methods.
+
+a static method, which means that it can be accessed without creating an object of the class, unlike public, which can only be accessed by objects
+
+Contohnya sebagai berikut, bila kode di atas diubah :
+
+public class Method3 {
+    // Create a public print method 
+    public void printMethod(){
+        System.out.println("How Are You?");
+    }
+    public static void main(String[] args) {
+        // Karena printMethod public, maka harus create new object untuk mengakses printMethod()
+        Method3 newObj = new Method3();
+        // Calling the printMethod()
+        newObj.printMethod();
+    }
+}
+
+Contoh lain :
+
+public class RaceCar {
+    // Create method FullSpeed
+    public void FullSpeed(){
+        System.out.println("Mobil dijalankan dengan kecepatan penuh");
+    }
+    // Create method Speed. The speed() method accepts an int parameter called maxSpeed
+    public void Speed(int maxSpeed){
+        // int maxSpeed = 140;
+        System.out.println("Kecepatan nya adalah : " + maxSpeed);
+    }
+    // Call the methods
+    public static void main(String[] args) {
+        // Create an object to access the public method (to use the RaceCar class and its methods)
+        RaceCar lambo = new RaceCar();
+        // Calling the method
+        lambo.FullSpeed();
+        lambo.Speed(200);
+    }
+}
+
+Constructor parameter :
+
+//Create Class
+public class Constructor1 {
+    //Create attributes
+    public int cadence;
+    public int gear;
+    public int speed;
+
+    //Create constructor for the Constructor1 class
+    //parameter (yg di dlm kurung) adalah yg di kanan sama dengan.
+    //bila tidak menggunakan parameter, boleh langsung di assign, misal: cadence = 30
+    public Constructor1(int incadence, int ingear, int inspeed){
+        cadence = incadence;
+        gear = ingear;
+        speed = inspeed;
+    }
+
+    public static void main(String[] args) {
+        //create object to access public method
+        Constructor1 newBike = new Constructor1(10, 20, 30);
+        System.out.println("Cadence : " + newBike.cadence);
+        System.out.println("Gear : " + newBike.gear);
+        System.out.println("Speed : " + newBike.speed);
+    }
+}
+
+Construction parameter dengan string.
+Ingat! kalo string harus di petik
+
+// Materi Constructor Paramater
+// Create class Mobil
+public class Mobil {
+    // Create Attributes
+    String model;
+    String warna;
+    int year;
+    int maxspeed;
+
+    // Create Constructor for class Mobil
+    public Mobil(String modelnya, String warnanya, int yearnya, int maxspeednya){
+        model = modelnya;
+        warna = warnanya;
+        year = yearnya;
+        maxspeed = maxspeednya;
+    }
+
+    // Running the program
+    public static void main(String[] args) {
+        // Create object
+        // Ingat! kalo string, harus dipetik dua
+        Mobil mobilBaru = new Mobil("bmw", "hitam", 2020, 280);
+        // Print
+        System.out.println(mobilBaru.model + " " + mobilBaru.warna + " " + mobilBaru.year + " " + mobilBaru.maxspeed ); 
+    }
+}
+
+
+9.Java Modifiers
+https://www.w3schools.com/java/java_modifiers.asp
+
+The public keyword is an access modifier, meaning that it is used to set the access level for classes, attributes, methods and constructors.
+
+We divide modifiers into two groups:
+
+ACCESS MODIFIER - controls the access level
+Non-Access Modifiers - do not control access level, but provides other functionality.
+
+For classes, you can use either public or default.
+* public : The class is accessible by any other class
+* default : The class is only accessible by classes in the same package.
+
+For attributes, methods and constructors, you can use the one of the following:
+* public : The code is accessible for all classes
+    jadi kalo bikin 2 file, 1 berisi class atribut & construct, 1 nya berisi class u/ menjalankan program, harus pakai public.
+* private : The code is only accessible within the declared class
+    Tidak bisa dibikin 2 file seperti yg public. Semua harus dlm 1 file.
+* default : The code is only accessible in the same package
+    sama seperti private
+* protected : The code is accessible in the same package and subclasses.
+
+Contoh kode : 
+D:\!belajar-2019\praxis\github\praxis-academy\kelas-tugas-materi\week-1\day-4\oopbasic\src\Modifier.java
+
+// JAVA modifier : https://www.w3schools.com/java/java_modifiers.asp
+// Create class Modifier
+public class Modifier{
+    // Create Attributes
+    public String name;
+    public int age;
+
+    // Create Construct
+    public Modifier(String namenya, int agenya){
+        name = namenya;
+        age = agenya;
+    }
+
+    // Create Method
+    public void printing(){
+        System.out.println(name + " " + age);
+    }
+
+    // Run
+    public static void main(String[] args) {
+        // Create object to access the public
+        Modifier newOrang = new Modifier("Jojo", 17);
+        // Print
+        // System.out.println(newOrang.name + " " + newOrang.age); // kalo pakai ini, tidak perlu create method
+        newOrang.printing();
+    }
+}
+
+NON ACCESS MODIFIER
+For classes, you can use either final or abstract:
+final  : The class cannot be inherited by other classes
+    Sebuah class yang di beri keyword "final", ga akan bisa di extend oleh class lain
+abstract  :  The class cannot be used to create objects (To access an abstract class, it must be inherited from another class.)
+
+For attributes and methods, you can use the one of the following:
+* final  : Attributes and methods cannot be overridden/modified
+* static : Attributes and methods belongs to the class, rather than an object.A static method means that it can be accessed without creating an object of the class
+* abstract :  Can only be used in an abstract class, and can only be used on methods. The method does not have a body, for example abstract void run();. The body is provided by the subclass (inherited from). You will learn more about inheritance and abstraction in the Inheritance and Abstraction chapters
+* transient :  Attributes and methods are skipped when serializing the object containing them
+* synchronized :  Methods can only be accessed by one thread at a time
+* volatile : The value of an attribute is not cached thread-locally, and is always read from the "main memory"
+
+
+10.Java Encapsulation
+The meaning of Encapsulation, is to make sure that "sensitive" data is hidden from users. To achieve this, you must:
+    * Declare class variables/attributes as private
+    * Provide public get and set methods to access and update the value of a private variable
+
+
+Get and Set
+You learned from the previous chapter that private variables can only be accessed within the same class (an outside class has no access to it). However, it is possible to access them if we provide public get and set methods.
+
+The get method returns the variable value, and the set method sets the value.
+
+Syntax for both is that they start with either get or set, followed by the name of the variable, with the first letter in upper case:
+
+Contoh :
+File 1 = Encapsulation.java
+// Create class Encapsulation
+public class Encapsulation{
+    //Create attribute
+    private String name;
+
+    //Getter 
+    //The get method returns the value of the variable name.
+    public String getName(){
+       return name; 
+    }
+
+    //Setter
+    //The set method takes a parameter (newName) and assigns it to the name variable.
+    public void setName(String newName){
+        this.name = newName;
+    }
+}
+
+File 2 = EncapsulationSub.java
+public class EncapsulationSub {
+    public static void main(String[] args) {
+        Encapsulation myObj = new Encapsulation();
+        //myObj.name = "John";  // error
+        myObj.setName("John"); // Set the value of the name variable to "John"
+        //System.out.println(myObj.name); // error 
+        System.out.println(myObj.getName());
+    }
+}
+
+Keterangan :
+tidak bisa pakai variable "name" karena attribute di class Encapsulation di set private. sehingga harus pakai setName("John") dan getName().
+
+JAVA PACKAGE 
+- sudah kemarin
+
+11.JAVA INHERITANCE (SUB CLASS DAN SUPER CLASS)
+In Java, it is possible to inherit attributes and methods from one class to another. We group the "inheritance concept" into two categories:
+    * subclass (child) - the class that inherits from another class
+    * superclass (parent) - the class being inherited from
+    To inherit from a class, use the "extends" keyword.
+
+class Vehicle {
+  ...
+  // waktu create attribute, gunakan public atau protected, jangan gunakan "private",. 
+}
+
+class Car extends Vehicle {
+  ...
+}
+
+
+If you don't want other classes to inherit from a class, use the final keyword:
+
+
+12.JAVA POLYMORPHISM
+Inheritance lets us inherit attributes and methods from another class. Polymorphism uses those methods to perform different tasks. This allows us to perform a single action in different ways.
+
+For example, think of a superclass called Animal that has a method called animalSound(). Subclasses of Animals could be Pigs, Cats, Dogs, Birds - And they also have their own implementation of an animal sound (the pig oinks, and the cat meows, etc.):
+
+Buat 2 file :
+Animal.java : berisi method dan extend
+public class Animal {
+    //Create Attribute
+    // String animalName;
+
+    //Create Construct
+    // public Animal(String ianimalName){
+    //     animalName = ianimalName;
+    // }
+    
+    //Create Method
+    public void animalSound(){
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Sapi extends Animal{
+    public void animalSound(){
+        System.out.println("Sapi say: Woooo");
+    }
+}
+
+AnimalRun.java
+public class AnimalRun{
+    public static void main(String[] args) {
+        //create object
+        Animal sapi = new Sapi();
+        //print
+        sapi.animalSound();
+    }
+}
+
+NOTE: perhatikan di file ke 2 (AnimalRun.java), new Sapi(); bukan new Animal().
+
+PRAKTEK OOP dgn EXTENDS :
+Buat 3 file :
+
+Bicycle.java
+//Create class Bicycle
+public class Bicycle{
+    //Create Attribute - Bicycle has 3 fields
+    public int cadence;
+    public int gear;
+    public int speed;
+
+    //Create Constructor - bicycle has 1 constructor
+    public Bicycle(int inCadence, int inGear, int inSpeed){
+        cadence = inCadence;
+        gear = inGear;
+        speed = inSpeed;
+    }
+
+    //Create method - bicycle has 4 methods
+    public void setCadence(int newValue){
+        cadence = newValue;
+    }
+    public void setGear(int newValue){
+        gear = newValue;
+    }
+    public void ApplyBreak(int decrement){
+        speed -= decrement;
+    }
+    public void SpeedUp(int increment){
+        speed += increment;
+    }
+}
+
+MountainBike.java
+public class MountainBike extends Bicycle {
+        
+    // the MountainBike subclass has
+    // one field
+    public int seatHeight;
+
+    // the MountainBike subclass has
+    // one constructor
+    public MountainBike(int startHeight, int startCadence,
+                        int startSpeed, int startGear) {
+        super(startCadence, startGear, startSpeed);
+        seatHeight = startHeight;
+    }   
+        
+    // the MountainBike subclass has
+    // one method
+    public void setHeight(int newValue) {
+        seatHeight = newValue;
+    }   
+
+}
+
+BicycleRun.java
+public class BicycleRun{
+    public static void main(String[] args) {
+        //create object
+        // Bicycle newBike = new Bicycle(10, 20, 30);
+        // System.out.println(newBike.cadence + " " + newBike.gear + " " + newBike.speed);
+
+        //umumnya new method nya sama dengan yg di depan (MountainBike)
+        MountainBike newBike = new MountainBike(10, 20, 30, 40);
+
+        System.out.println(newBike.seatHeight);
+        System.out.println(newBike.cadence);
+        System.out.println(newBike.speed);
+        System.out.println(newBike.gear);
+    }
+}
 
 
 
@@ -358,3 +809,12 @@ https://www.w3schools.com/java/java_getstarted.asp
 
 
 ======================================================================
+
+Untuk hari ini, saya belajar ... hal.
+yang pertama...
+yang kedua ...
+
+Untuk yg pertama saya sdh/blm paham
+kendala nya 
+dst
+sekian, terimakasih.
