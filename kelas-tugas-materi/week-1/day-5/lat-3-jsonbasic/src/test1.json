@@ -1,0 +1,14 @@
+// Awali dengan {} --> object
+// pasangan name/value di petik ""
+// pemisah koma
+// bila value nya adalah array, gunakan []
+// array value itu bisa di isi dengan object {}
+{
+    "book": "Dongeng Pagi",
+    "laptop": [
+        {
+            "brand":"Acer",
+
+        },
+    ]
+}

@@ -1,0 +1,50 @@
+{
+    "title":"Benda",
+    "description":"Benda-benda di sekitar kita",
+    "type":"Object",
+
+    "mobil":[
+        {
+            "merek":"Toyota",
+            "tahun":"2020",
+            "warna":"Hitam",
+            "kondisi":"baru"
+        },
+        {
+            "merek":"Honda",
+            "tahun":"2019",
+            "warna":"Putih",
+            "kondisi":"90%"
+        }
+    ],
+
+    "laptop":[
+        {
+            "merek":"acer",
+            "warna":"hitam silver",
+            "tahun beli":"2016",
+            "tipe windows":"Win 10"
+        },
+        {
+            "merek":"Toshiba",
+            "warna":"putih",
+            "tahun beli":"2019",
+            "tipe windows":"Win 10"
+        }
+    ],
+
+    "sepedamotor":[
+        {
+            "merek":"Honda",
+            "warna":"hitam",
+            "tahun":"2019",
+            "kondisi":"85%"
+        },
+        {
+            "merek":"Suzuki",
+            "warna":"Merah",
+            "tahun":"2017",
+            "kondisi":"65%"
+        }
+    ]
+}

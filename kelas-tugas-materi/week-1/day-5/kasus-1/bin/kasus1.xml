@@ -1,0 +1,45 @@
+<benda>
+    <title>Benda</title>
+    <description>Benda-benda di sekitar kita</description>
+    <type>Object</type>
+
+    <mobil>
+        <merek>Toyota</merek>
+        <tahun>2020</tahun>
+        <warna>Hitam</warna>
+        <kondisi>Baru</kondisi>
+    </mobil>
+    <mobil>
+        <merek>Honda</merek>
+        <tahun>2019</tahun>
+        <warna>Putih</warna>
+        <kondisi>90%</kondisi>
+    </mobil>
+
+
+    <laptop>
+        <merek>acer</merek>
+        <warna>hitam silver</warna>
+        <tahunbeli>2016<tahunbeli>
+        <tipewindows>Win 10</tipewindows>
+    </laptop>
+    <laptop>
+        <merek>Toshiba</merek>
+        <warna>putih</warna>
+        <tahunbeli>2019<tahunbeli>
+        <tipewindows>Win 10</tipewindows>
+    </laptop>
+
+    <sepedamotor>
+        <merek>Honda</merek>
+        <warna>hitam</warna>
+        <tahun>2019</tahun>
+        <kondisi>85%</kondisi>
+    </sepedamotor>
+    <sepedamotor>
+        <merek>Suzuki</merek>
+        <warna>Merah</warna>
+        <tahun>2016</tahun>
+        <kondisi>65%</kondisi>
+    </sepedamotor>
+</benda>
