@@ -1,5 +1,11 @@
 ========================================================================================================
 DAY 1 - 20 JAN 2020
+08113595678 = Pak Zaenal
+
+Wifi :
+Prime Longue Complex
+pepatahbijak
+
 ========================================================================================================
 1.Ikuti langkah2 di sini :
 https://code.visualstudio.com/docs/java/java-tutorial
@@ -354,7 +360,7 @@ https://www.w3schools.com/java/java_getstarted.asp
 
 
 ----------------------
-JAVA OOP
+JAVA OOP = https://www.w3schools.com/java/java_oop.asp
 ----------------------
 1. Class & Object
 Class = Car --> tdk bisa dipegang fisik nya
@@ -805,6 +811,29 @@ public class BicycleRun{
 public "static" ... method dst
 Static itu artinya pada saat memanggil method, tidak perlu inisialisasi.
 Inisialisasi = menggunakan keyword "new"
+
+------------
+lanjutkan ke :
+https://www.w3schools.com/java/java_inner_classes.asp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ======================================================================
@@ -1532,6 +1561,153 @@ public class ReadingJSON {
       }
    }
 }
+
+====================================================================================
+====================================================================================
+WEEK 2 - 27 JAN 20
+====================================================================================
+====================================================================================
+W2 - DAY 1
+
+KONSEP OOP 
+
+Mulai thn 95, java sdh di unggulkan karena punya OOP. 
+OOP >< structured programming
+
+Analogi membangun gedung :
+* structured programming = mulai membangun dari fondasi nya urut ke atas (pilar, genteng, dll)
+* OOP = menentukan object apa yg menyusun gedung itu (secara bagian per bagian/modular). Lalu membangun tiap2 object.
+
+Sehingga saat membuat applikasi untuk misalnya showroom mobil, 
+kita bisa melakukan abstraksi (extraksi data / analisa), object2 apa saja yg ada di showroom mobil itu.
+
+Dari abstraksi, kita buat class diagram / diagram yang berisi class-class yang dibutuhkan.
+
+Object untuk showroom mobil : customer, mobil, kasir
+lalu masing2 object nya melakukan apa ? --> prosedur nya gmana agar customer bisa beli mobil. prosedur = function nya.
+
+class = prototype = kumpulan property (no KTP, nama, alamat, no telp) dan method.
+misal class customer = di dlm nya ada : no KTP, nama, alamat, no telp.
+customer bisa berwujud, ketika membuat object.
+
+Inheritance : turunan.
+Misal, kita punya object yg mirip : customer, sales, supplier.
+Mereka semua punya : no KTP, nama, alamat, telpon.
+Jadi kita buat parent class "Human", lalu buat inheritance untuk object customer, sales, supplier.
+
+--------------------------------
+
+Buat applikasi penghitung Luas dan Keliling dengan netbeans.
+
+Buat (file PersegiPanjang.java) class PersegiPanjang untuk menghitung luas dan keliling persegi panjang.
+
+untuk memakai class itu, tinggal bikin object di file FormPersegiPanjang.java
+lalu di isi nilai nya (ambil dari form)
+lalu di run 
+
+-----------------------
+
+encapsulasi : 
+
+Di netbeans di menu : "refactor/encapsulate field"
+
+atribut nya / variable nya di private, lalu untuk mengakses lewat method nya pakai get & set.
+
+
+Download netbeans 8.0.2 --> ini untuk web 
+Server : Apache Tomcat 8.0.15.0
+JAVA EE 7 Web
+
+Framework : 
+
+file untuk web menggunakan file *jsp
+file *jsp = HTML yg di sisipi java
+
+servlet = java class yg running di sisi server (file java yg disisipi php)
+
+client side = JSP  (kayak HTML)
+server side = Servlet
+
+-------------------
+Aplikasi pengolahan data selalu punya 3 komponen :
+    a.form connect ke DB
+    b.query
+    c.tampilan
+    d.model
+
+Samarin - bhs pemrograman microsoft
+
+----------------------------
+
+buat package "com.cst.model" (jadi folder)
+buat class Siswa di dlm folder model
+
+
+----------------------------
+mysql jdbc driver = mysql konektor u/ java
+
+Java naming convension
+* Nama class = diawali huruf besar --> Siswa, SiswaSekolah
+* Method : camel case --> Huruf kecil lalu huruf besar --> setText(), getText(),beliMobil()
+* Variable : huruf kecil --> camel case --> nis, namaSiswa, emailSiswa
+* Object : huruf kecil --> camel case
+* Interface : class yg bisa inheritance dari beberapa class
+    class interface : 1 anak, punya byk bapak
+    aturan nya kalo class umum : 1 anak hanya boleh inherit dari 1 bapak 
+
+----------------------------
+Praktek bikin interface di netbeans :
+* buat package/folder com.cst.dao
+* Buat folder SiswaDao.java
+    public void insertSiswa (Siswa Obyeksiswa);
+    
+Contoh bikin method dengan parameter object dari class tertentu
+
+kalo mau pake interface, harus pakai implements (bukan extends) dan harus panggil methods untuk semua method.
+
+https://www.slideshare.net/zaenalarifin05/project-netbeans-dengan-oop
+
+public interface SiswaDAO {
+    public void siswa();
+    public void insertSiswa (String nis, String nama, String alamat, String notelp, String email)
+    public void insertSiswa (siswa obyeksiswa); // cara lain penulisan code di atas agar lbh singkat
+    public void hapusSiswa (String nis); //melewati nis
+    public void hapusSiswaByName (String namaSiswa); //melewati namaSiswa
+    public void updateSiswa (Siswa siswa) 
+}
+
+public class SiswaQuery implements SiswaDAO, Report {
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

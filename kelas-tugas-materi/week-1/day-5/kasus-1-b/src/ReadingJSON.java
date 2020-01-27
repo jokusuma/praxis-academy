@@ -19,7 +19,7 @@ public class ReadingJSON {
          String date_of_birth = (String) jsonObject.get("Date_Of_Birth");
          String place_of_birth = (String) jsonObject.get("Place_Of_Birth");
          String country = (String) jsonObject.get("Country");
-         //Forming URL
+         //Forming URLSV
          System.out.println("Contents of the JSON are: ");
          System.out.println("ID :"+id);
          System.out.println("First name: "+first_name);
