@@ -59,6 +59,25 @@ $ jar cvfe App.jar App App.class
     App = class yg mengandung "public static void main(String[] args) {}"
 java -jar App.jar
 
+---------------
+Cara buat JAR dengan gradle (setelah di unit test):
+* di "build.gradle" tambahkan 
+    jar{
+        manifest{
+            attributes 'Main-Class': 'coba2.App'
+        }
+    }
+* Di terminal, di folder project, ketikkan :
+    gradle build
+* Di terminal masuk ke folder "build/libs":
+    d/!belajar-2019/praxis/github/praxis-academy/kelas-tugas-materi/week-2/w2-day2/coba2/build/libs
+* Jalankan file *jar
+    java -jar coba2.jar
+* Lihat hasil test nya, bila belum 100%, berarti ada class/method yg perlu di perbaiki, maka harus di :
+    gradle clean
+    dan di gradle build lagi mulai awal.
+-------------
+
 8.input dari user :
 Untuk membuat file *java, harus langsung di dalam folder /src/
 Jika di sub-folder nya (src/app), harus pakai package.
@@ -104,6 +123,31 @@ variable name : GRADLE_HOME
 variable value : C:\Gradle\gradle-6.1\bin
 
 di path, tambahkan : C:\Gradle\gradle-6.1\bin
+
+Penggunaan nya :
+    Buat folder baru
+    buka CMD, arah kan ke folder dimana project akan dibuat.
+    ketik di CMD :
+    gradle init
+    pilih 3 (java)
+    pilih 2 (java application)
+    enter
+    enter
+
+    lalu akan tercipta project folder gradle.
+    Lalu open folder gradle tersebut di vscode
+    lalu buka folder src/main/nama-folder
+    Di dlm folder itu, buat file *java nya
+
+Untuk running = gradle run
+
+kalo untuk unit test:
+    untuk build = gradle build
+    buka file index.html di = 
+    praxis-academy/kelas-tugas-materi/week-2/w2-day2/cobagradle/build/reports/tests/test/index.html
+
+Biasanya setelah di cek di index.html dan hasil test nya 100%, maka di convert ke jar. lihat langkah2 convert ke jar di line 47. 
+
 
 3. Exception/ERROR handling :
 Caranya adalah tambahkan "e" untuk menampilkan error nya.
@@ -1680,14 +1724,155 @@ public class SiswaQuery implements SiswaDAO, Report {
     
 }
 
+=========================================================
+DAY 3
+Unit dan Unit Testing with JUnit - TUtorial.
+https://junit.org/junit5/
+https://www.vogella.com/tutorials/JUnit/article.html
+
+kalau Data typenya void, ga perlu return
+Kalau data type nya integer, string, dll (seperti : double), maka perlu return
+
+https://junit.org/junit5/docs/current/user-guide/
+
+How to Download and install JUnit : (klo pake gradle, ga perlu)
+https://www.tutorialspoint.com/junit/junit_environment_setup.htm
+
+untuk gradle, gunakan JUnit 4 :
+https://junit.org/junit4/
+https://github.com/junit-team/junit4/wiki/Download-and-Install
+
+--------------------------------
+
+Langkah2 melakukan unit test dengan Gradle (+JUnit 4.12):
+* Buat folder utama melalui win explorer
+* Git bash di folder utama itu
+* Di git bash :
+    - gradle init
+    - 2 (application)
+    - 3 (java)
+    - enter (default)
+    - enter
+    - enter
+* Buka VS Code, di struktur file, buat file 2 java dgn nama lain di : 
+    di folder \folderutama\src\main\java\GradleBuild
+    dan \folderutama\src\test\java\GradleBuild
+* Praktekkan ini :
+https://agung-setiawan.com/java-testing-aplikasi-menggunakan-junit/
+* lalu buat build file jar nya sebagai berikut:
+* Cara buat JAR dengan gradle (setelah di unit test):
+    di "build.gradle" tambahkan 
+    jar{
+        manifest{
+            attributes 'Main-Class': 'coba2.App'
+        }
+    }
+* Di terminal, di folder project, ketikkan :
+    gradle build
+* Di terminal masuk ke folder "build/libs":
+    d/!belajar-2019/praxis/github/praxis-academy/kelas-tugas-materi/week-2/w2-day2/coba2/build/libs
+* Jalankan file *jar
+    java -jar coba2.jar
+* Lihat hasil test nya, bila belum 100%, berarti ada class/method yg perlu di perbaiki, maka harus di :
+    gradle clean
+    dan di gradle build lagi mulai awal.
+
+--------------------------------
+
+Kalau di run = $ java -jar Gradlebuild.jar
+ada error :
+Error: Main method not found in class GradleBuild.Kalkulator, please define the main method as:
+   public static void main(String[] args)
+or a JavaFX application class must extend javafx.application.Application
+
+solusi :
+* cek "build.gradle" nya apakah sudah sesuai main class nya
+    application {
+        // Define the main class for the application.
+        mainClassName = 'GradleBuild.Kalkulator'
+    }
+    jar{
+        manifest{
+            attributes 'Main-Class': 'GradleBuild.Kalkulator'
+        }
+    }
+* cek di file Kalkulator.java nya, apakah sudah ada main() method nya :
+    public static void main(String[] args) {}
+
+----------------
+
+Cara testing nya :
+https://dev.to/chrisvasqm/introduction-to-unit-testing-with-java-2544
+* Buat project folder + gradle init seperti langkah di atas
+* Buka VS Code, di struktur file, buat file 2 java dgn nama lain di : 
+    di folder \folderutama\src\main\java\GradleBuild --> Math.java
+    dan \folderutama\src\test\java\GradleBuild --> MathTests.java
+* di file Math.java :
+    package unittest;
+
+    public final class Math {
+
+        public static int add(int first, int second) {
+            return first + second;
+        }
+
+        public static int multiply(int multiplicand, int multiplier) {
+            return multiplicand * multiplier;
+        }
+
+        public static double divide(int dividend, int divisor) {
+            if (divisor == 0)
+                throw new IllegalArgumentException("Cannot divide by zero (0).");
+
+            return dividend / divisor;
+        }
+    }
+
+* Di file MathTests.java :
+jangan pakai "import org.junit.Assert", tapi pakai "import static junit.framework.Assert.*;"
 
 
+    package unittest;
+
+    import org.junit.Test;
+    //import org.junit.Assert;
+    import static junit.framework.Assert.*;
+
+    public class MathTests {
+        @Test //Harus import rg.junit.Test
+        @SuppressWarnings("deprecation")
+        public void add_TwoPlusTwo_ReturnFour(){
+            // Arrange
+            final int expected = 5;
+
+            // Act
+            final int actual = Math.add(3, 2);
+
+            // Assert
+            assertEquals(expected, actual);
+        }
+
+        @Test
+        @SuppressWarnings("deprecation")
+        public void multiplyTwoWithThreeReturnSix(){
+            final int expected = 6;
+            final int actual = Math.multiply(3, 2);
+            assertEquals(expected, actual);
+        }
+
+        @Test
+        @SuppressWarnings("deprecation")
+        public void DivideTenByFiveReturnTwo(){
+            final double expected = 2;
+            final double actual = Math.divide(10, 5);
+            System.out.println(expected+" "+actual);
+            assertEquals(expected, actual);
+        }
+    }
 
 
-
-
-
-
+di run test, kalo hasil method nya salah, maka akan keluar :
+https://www.screencast.com/t/i1Rokiju
 
 
 
