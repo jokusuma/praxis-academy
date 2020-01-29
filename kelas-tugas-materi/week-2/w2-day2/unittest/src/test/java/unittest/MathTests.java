@@ -34,4 +34,11 @@ public class MathTests {
         System.out.println(expected+" "+actual);
         assertEquals(expected, actual);
     }
+
+    // @Test(expectedExceptions = IllegalArgumentException.class)
+    // Bisa pakai expected saja atau : https://stackoverflow.com/questions/49537960/the-attribute-expected-is-undefined-for-the-annotation-type-test
+    @Test(expected = IllegalArgumentException.class)
+    public void divide_TenDividedByZero_ThrowsIllegalArgumentException() {
+        Math.divide(10, 0);
+    }
 }

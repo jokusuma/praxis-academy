@@ -11,7 +11,8 @@ pepatahbijak
 https://code.visualstudio.com/docs/java/java-tutorial
 
 2.Setting java bin di "environment variable" (logo windows -> envi -> tab advance -> environment variable) :
-C:\Program Files\Java\jdk-13.0.2\bin
+    C:\Program Files\Java\jdk-13.0.2\bin
+    C:\Program Files\Java\jdk1.8.0_221\bin
 lihat screenshot ini : D:\!belajar-2019\praxis\kelas\week-1\day-1\2020-01-20_10-45-51.png
 
 lihat apakah java sudah jalan :
@@ -1874,10 +1875,106 @@ jangan pakai "import org.junit.Assert", tapi pakai "import static junit.framewor
 di run test, kalo hasil method nya salah, maka akan keluar :
 https://www.screencast.com/t/i1Rokiju
 
+=============================================================
+
+WEEK 2 - DAY 3 :
+
+Inti Thread :
+
+Kalo pakai "extends", inisiasi object nya 1 kali.
+Kalo pakai "implements runnable", inisiasi object nya 2 kali.
+Pada saat menjalan kan di main nya, pakai method "namaobjek.start()" (bukan pakai nama method nya)
+
+-------------------------
+METODE : implements runnable
+------------------------
+* buat folder baru
+* git init di folder tersebut
+* Buat file LatihanThread.java dan LatihanThreadRun.java (berisi main)
+* Ikuti : //https://www.kurungkurawal.com/2011/04/25/aplikasi-multithread-dengan-java/
+
+LatihanThread.java 
+
+//https://www.kurungkurawal.com/2011/04/25/aplikasi-multithread-dengan-java/
+//Multithread count 1-10 dan 11-20
+//menggunakan cara "Extends"
+
+
+public class LatihanThread implements Runnable {
+    //Create Attr
+    public String name;
+    
+    //Constructor
+    void threadName(String name){
+        this.name = name;
+    }
+
+    //Method
+    @Override
+    public void run(){
+        for(int i = 1; i<=10; i++){
+            System.out.println(this.name + " Angka ke : " + i);
+        }
+        System.out.println(this.name + " selesai");
+    }
+
+    //Main
+    //di class "LatihanThreadRun"
+}
+
+LatihanThreadRun.java
+
+public class LatihanThreadRun {
+    public static void main(String[] args) {
+        //Create object
+        LatihanThread t1 = new LatihanThread();
+        Thread th1 = new Thread(t1);
+        t1.threadName("Thread 1");
+        th1.start();
+
+        LatihanThread t2 = new LatihanThread();
+        Thread th2 = new Thread(t2);
+        t2.threadName("Thread 2");
+        th2.start();
+    }
+}
+
+
+Untuk method extends :
+
+LatihanThread.java 
+
+public class LatihanThread extends Thread {
+...etc...
+}
+
+
+LatihanThreadRun.java 
+
+public class LatihanThreadRun {
+    public static void main(String[] args) {
+        LatihanThread t1 = new LatihanThread();
+        t1.start();
+
+        LatihanThread t2 = new LatihanThread();
+        t2.start();
+    }
+}
 
 
 
 
+=============================================================
+
+inti nya :
+micronout : https://guides.micronaut.io/creating-your-first-micronaut-app/guide/index.html
+noSQL = mariaDB
+SQL = hibernate
+newSQL = relasi langsung ke model / pembuatan field2 langsung bisa mengganti di model = cokroach
+
+javascript : https://eloquentjavascript.net/
+
+vuejs + https://vuetifyjs.com/en/components/forms
 
 
 
